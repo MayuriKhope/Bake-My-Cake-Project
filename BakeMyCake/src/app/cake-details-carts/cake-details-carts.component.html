@@ -1,0 +1,152 @@
+
+
+
+<section id="cake-content">
+    <div id="cake-detail">
+        <h2>{{Cakes?.names}}</h2>
+        <h3>
+            <mat-icon class="text-warning" color="accent" *ngFor="let star of stars">star</mat-icon>
+        </h3>
+        <h4> Category:{{Cakes?.category}}</h4>
+        <!-- {{bake?.price}}   -->
+        <img src="../../assets/images/{{Cakes?.imagesUrl}}.jpg">
+        
+    </div>
+    <form id="bake-request" [formGroup]="customerForm">
+        <h1>Order Your Items</h1>
+        <h2>Name:{{Cakes?.names}}</h2>
+        <h4 > Price ₹{{Cakes?.price}}  &nbsp;<span id="per-tour"> PER PIECE</span></h4> 
+
+         <!--customer Details  -->
+        <h3>Enter your  details</h3>
+
+        <!-- name -->
+        <mat-form-field >
+            <mat-label>Customer Name</mat-label>
+            <input matInput type="text" required minlength="3" placeholder="Name" name="customerName" formControlName="customerName" [(ngModel)] = "Customer.customerName">
+            <mat-error *ngIf="customerName?.errors?.['required']">
+                Customer Name is required 
+            </mat-error>
+            <mat-error *ngIf="customerName?.errors?.['minlength']">
+                Customer Name should be contains minimum 3 letter
+            </mat-error>
+            <mat-error *ngIf="customerName?.errors?.['pattern']">
+                Customer Name should be in letters 
+            </mat-error>
+        </mat-form-field>
+
+
+        <!-- email -->
+        <mat-form-field>
+        <mat-label>Email</mat-label>
+            <input matInput type="email"required placeholder="Email" name="customerEmail" formControlName="customerEmail" [(ngModel)] = "Customer.customerEmail">
+            <mat-error *ngIf="customerEmail?.errors?.['required']">
+                Customer Email is required
+            </mat-error>
+            <mat-error *ngIf="customerEmail?.errors?.['pattern']">
+                Enter the Valid email
+            </mat-error>
+        </mat-form-field>
+
+
+        <!-- Phone -->
+        <mat-form-field >  
+            <mat-label>Phone</mat-label>
+            <input matInput type="phone"required placeholder="Phone" name="customerPhone" formControlName="customerPhone" [(ngModel)] = "Customer.customerPhone">
+            <mat-error *ngIf="customerPhone?.errors?.['required']">
+                Customer PhoneNumber is required
+            </mat-error>
+            <mat-error *ngIf="customerPhone?.errors?.['pattern']">
+                Valid phone number contains 10 digits starting with 7/8/9
+            </mat-error>
+        </mat-form-field>
+
+
+    <!-- address -->
+    <div formGroupName="address">
+        <h4>Address</h4>
+
+        <!-- street -->
+        <mat-form-field class="me-4">
+            <mat-label>street</mat-label>
+            <input matInput name="text" required placeholder="street"  formControlName="street" [(ngModel)] = "Customer.street">
+            <mat-error *ngIf="customerForm.controls.address.controls.street.errors?.['required']">
+                street name is required.
+            </mat-error>
+        </mat-form-field>
+
+
+         <!-- city -->
+        <mat-form-field>
+        <mat-label>city</mat-label>
+            <input matInput name="text" required placeholder="city"  formControlName="city" [(ngModel)] = "Customer.city">
+            <mat-error *ngIf="customerForm.controls.address.controls.city.errors?.['required']">
+                city name is required.
+            </mat-error>
+        </mat-form-field><br>
+
+
+         <!-- state -->
+        <mat-form-field class="me-4">
+        <mat-label>state</mat-label>
+            <input matInput name="text" required placeholder="state"  formControlName="state" [(ngModel)] = "Customer.state">
+            <mat-error *ngIf="customerForm.controls.address.controls.state.errors?.['required']">
+                state name is required.
+            </mat-error>
+        </mat-form-field>
+
+
+        <!-- pin -->
+        <mat-form-field>
+        <mat-label>pin</mat-label>
+            <input matInput name="text" required placeholder="pinCode"  formControlName="pinCode" [(ngModel)] = "Customer.pinCode">
+            <mat-error *ngIf="customerForm.controls.address.controls.pinCode.errors?.['required']">
+                zip is required.
+            </mat-error>
+            <mat-error *ngIf="customerForm.controls.address.controls.pinCode.errors?.['pattern']">
+                zip code should be 5digit or 6digit numbers
+            </mat-error>
+        </mat-form-field><br>
+    </div>
+
+    <!-- 
+        [ngModelOptions]="{standalone: true}" specifies that this input field is not part of any form, allowing it to exist independently.
+
+        (input)="TotalAmount()" is an event handler that triggers the TotalAmount() method whenever there's an input in this field. 
+    -->
+
+    <!-- Quantity -->
+    <mat-form-field >
+        <mat-label>Quantity</mat-label> 
+         <input matInput type="text" required placeholder="quantity" name="quantity"  formControlName="quantity" [(ngModel)] = "Customer.quantity" (input)="TotalAmount()">
+         <mat-error *ngIf="quantity?.errors?.['required']">
+            Quantity should be required
+         </mat-error>
+         <mat-error *ngIf="quantity?.errors?.['pattern']">
+           Quantity should not be negative
+        </mat-error>
+    </mat-form-field>
+
+    <!-- Total Amount -->
+    <mat-form-field>
+        <mat-label>Total Amount</mat-label>
+        <input matInput type="number" required placeholder="Total Amount" id="totalAmount" [(ngModel)]="Customer.totalAmount" [ngModelOptions]="{standalone: true}"  (input)="TotalAmount()" >
+    </mat-form-field>
+
+    <!-- Date -->
+    <mat-form-field >
+        <mat-label>Date</mat-label> 
+         <input matInput type="date" required placeholder="date" name="dateOfOrder"  formControlName="dateOfOrder" [(ngModel)] = "Customer.dateOfOrder">
+         <mat-error *ngIf="dateOfOrder?.errors?.['required']">
+            date should be required
+         </mat-error>
+    </mat-form-field>
+    
+
+    <button mat-flat-button color="primary" (click)="makeRequest()">Order</button>
+    </form>
+</section>
+
+
+
+

@@ -1,0 +1,22 @@
+.cakeCard{
+    margin:0 auto;
+    width:100%;   
+}
+
+.footer-icons{
+    background-color: rgb(198, 90, 241);
+    width:100%;
+    text-align: center;
+}
+
+img{
+      height:30px;
+      width:30px;
+      padding-left:10px;;
+  }
+
+app-search{
+    text-align: center;
+    border: 0px;
+}
+

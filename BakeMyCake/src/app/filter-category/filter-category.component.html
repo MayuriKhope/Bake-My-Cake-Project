@@ -1,0 +1,9 @@
+
+    <div id="space">
+        <mat-label>Filter by Category: </mat-label>
+        <mat-button-toggle-group [(ngModel)]="varfilter">
+            <mat-button-toggle value="Cakes" class="btn" (click)="filterMethod()">cakes</mat-button-toggle>
+            <mat-button-toggle value="Cookies" class="btn" (click)="filterMethod()">Cookies</mat-button-toggle>
+            <mat-button-toggle value="brownies" class="btn" (click)="filterMethod()">brownies</mat-button-toggle>
+        </mat-button-toggle-group>
+    </div>

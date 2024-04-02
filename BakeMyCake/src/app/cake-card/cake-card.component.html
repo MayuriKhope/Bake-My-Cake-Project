@@ -1,0 +1,17 @@
+
+<mat-card class="cake-card d-inline-flex">
+    <img mat-card-image class="cakeimage" src="../../assets/images/{{cake.imagesUrl}}.jpg">
+    <mat-card-header>
+        <mat-card-title class="cake-title">{{cake.names}} </mat-card-title><br>
+        <mat-card-subtitle>Rs {{cake.price}}.00</mat-card-subtitle><br>
+    </mat-card-header>
+    <mat-card-content>
+        <p>Early Delivery:  <span style="color: red;">Today</span></p>
+        <span style="color:yellow">{{cake.ratings}} Review</span>
+    </mat-card-content>
+    <mat-card-actions>
+        <!-- routerLinks intself working like anchor tag  -->
+        <mat-icon [routerLink]="'/cake-details-cart/' + cake.id" class="cart-icon" matTooltip="add to cart">shopping_cart</mat-icon>
+    </mat-card-actions>
+</mat-card>
+

@@ -1,0 +1,28 @@
+<!-- 
+    <div id="login-form">
+        <h3>If you are An Admine, enter your Security Code</h3>
+        <mat-form-field>
+            <mat-label>Enter Password </mat-label>
+            <input matInput name="cakeCode" type="password" [(ngModel)]="cakeCode" placeholder="Cake Code" required>
+           </mat-form-field>
+        <button mat-button color="primary" (click)="validateCustomerGuideCode()">Submit</button>
+        <h3><a routerLink="">click here for go back to Home</a></h3>
+    </div> -->
+
+    <!-- here we used property binding so that data flow in single direction from .ts to .html-->
+    <div  class="text-center login-form">
+        <fa-icon [icon]="varfaLock" class="fa-3x"></fa-icon>
+        <h1>Welcome</h1>
+        <h3>Please enter Your login details</h3>
+        <mat-form-field>
+            <mat-label>Enter ID</mat-label>
+            <input  matInput name="AdminId" type="text" [(ngModel)]="AdminId" placeholder="Enter ID" required>
+        </mat-form-field><br>
+        <mat-form-field>
+            <mat-label>Enter Password </mat-label>
+            <input matInput name="securityCode" type="password" [(ngModel)]="securityCode" placeholder="Security Code" required>
+        </mat-form-field><br>
+        <button mat-button color="primary" (click)="validateCustomerGuideCode()">Submit</button>
+        <h3><a routerLink="">click here for go back to Home</a></h3>
+    </div> 
+    

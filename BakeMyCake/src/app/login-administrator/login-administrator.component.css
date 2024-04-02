@@ -1,0 +1,15 @@
+
+.login-form{
+  width:50%;
+  margin: 3% auto;
+  background-image:url("../../assets/OtherImages/pink-velvet-cake-slices.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+}
+h3{
+    font-weight: bold;
+    font-size: 1em;
+}
+h1{
+    font-weight: bold;  
+} 

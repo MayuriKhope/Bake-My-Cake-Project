@@ -1,0 +1,17 @@
+
+.mainClass {
+ margin:0 auto;
+ width:100%;
+ font-size: 1.1em;
+}
+
+.headerComp{
+ background-image:url("../../assets/OtherImages/pink-velvet-cake-slices.jpg"); 
+ background-size: cover;
+ background-attachment: fixed;
+ font-size: 1.1em; 
+ width:100%;
+ margin:0 auto;
+ color:rgb(58, 2, 35);
+} 
+

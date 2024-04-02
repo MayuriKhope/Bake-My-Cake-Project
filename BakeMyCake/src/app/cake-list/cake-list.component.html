@@ -1,0 +1,13 @@
+<div >
+    <app-search id="search" (searchTextChanged)="onSearchTextMethod($event)"></app-search>
+    <app-filter-category  (filterTextChanged)="filterCake($event)"></app-filter-category>
+</div>
+<div>
+<app-cake-card  class="cakeCard" *ngFor = "let bakery of cokiees" [cake] = "bakery"></app-cake-card>
+<div class="footer-icons">
+    Connect with us
+     <img mat-card-image src="../../assets/images/facebook.png">
+     <img mat-card-image src="../../assets/images/instagram.png">
+     <img mat-card-image src="../../assets/images/twitter.png">
+ </div>
+</div>
